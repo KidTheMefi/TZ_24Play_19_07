@@ -13,7 +13,6 @@ public class StickMan : MonoBehaviour
     private Collider _collider;
     [SerializeField]
     private Rigidbody _fullRigidbody;
-
     
     public void Jump()
     {

@@ -3652,7 +3652,7 @@ MonoBehaviour:
   _warpEffect: {fileID: 1793623272}
   _forwardSpeed: 10
   _sideSpeed: 10
-  limitValue: 2
+  _horizontalMoveLimit: 2
 --- !u!114 &2076399479115508737
 MonoBehaviour:
   m_ObjectHideFlags: 0

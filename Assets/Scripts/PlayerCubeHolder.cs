@@ -17,8 +17,7 @@ public class PlayerCubeHolder : MonoBehaviour
     {
         foreach (var cube in _playerCubes)
         {
-            cube.GrabCube += OnGrabCube;
-            cube.CubeWallCollide += OnCubeWallCollide;
+            CubeEventSubscribe(cube, true);
         }
     }
     private void OnGrabCube(PlayerCube cube)
@@ -33,8 +32,7 @@ public class PlayerCubeHolder : MonoBehaviour
             cube.transform.SetParent(transform);
             _playerCubes.Add(cube);
 
-            cube.GrabCube += OnGrabCube;
-            cube.CubeWallCollide += OnCubeWallCollide;
+            CubeEventSubscribe(cube, true);
         }
     }
 
@@ -42,16 +40,28 @@ public class PlayerCubeHolder : MonoBehaviour
     {
         _playerCubes.Remove(cube);
         CubeLose.Invoke();
-        cube.GrabCube -= OnGrabCube;
-        cube.CubeWallCollide -= OnCubeWallCollide;
+        CubeEventSubscribe(cube, false);
+    }
+
+    private void CubeEventSubscribe(PlayerCube cube, bool value)
+    {
+        if (value)
+        {
+            cube.GrabCube += OnGrabCube;
+            cube.CubeWallCollide += OnCubeWallCollide;
+        }
+        else
+        {
+            cube.GrabCube -= OnGrabCube;
+            cube.CubeWallCollide -= OnCubeWallCollide;
+        }
     }
 
     private void OnDestroy()
     {
         foreach (var cube in _playerCubes)
         {
-            cube.GrabCube -= OnGrabCube;
-            cube.CubeWallCollide -= OnCubeWallCollide;
+            CubeEventSubscribe(cube, false);
         }
     }
 }

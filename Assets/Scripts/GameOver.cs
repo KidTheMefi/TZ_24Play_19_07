@@ -13,15 +13,13 @@ namespace DefaultNamespace
         [SerializeField]
         private Button _restartButton;
 
-
         private void Start()
         {
             _gameOverScreen.SetActive(false);
             _stickMan.EndGameCollision += StickManOnEndGameCollision;
             _restartButton.onClick.AddListener(RestartGame);
         }
-
-
+        
         private void StickManOnEndGameCollision()
         {
             _gameOverScreen.SetActive(true);

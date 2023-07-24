@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace DefaultNamespace
 {
@@ -13,7 +12,6 @@ namespace DefaultNamespace
         private PlayerMove _playerMove;
         
         public PlayerCubeHolder PlayerCubeHolder => _playerCubeHolder;
-        
 
         private void Start()
         {

@@ -16,8 +16,7 @@ namespace DefaultNamespace
 
         [SerializeField]
         private List<TrackFragment> _inGameTrackFragments;
-
-
+        
         private void Start()
         {
             foreach (var trackFragment in _inGameTrackFragments)
@@ -25,6 +24,7 @@ namespace DefaultNamespace
                 trackFragment.PlayerEndTrackFragment += OnPlayerEndTrackFragment;
             }
         }
+        
         private void OnPlayerEndTrackFragment()
         {
            
@@ -44,8 +44,6 @@ namespace DefaultNamespace
             newTrackFragment.PlayerEndTrackFragment += OnPlayerEndTrackFragment;
         }
 
-        
-
         private void RemoveOldFragment()
         {
             var fragment = _inGameTrackFragments[0];
@@ -53,6 +51,7 @@ namespace DefaultNamespace
             fragment.PlayerEndTrackFragment -= OnPlayerEndTrackFragment;
             Destroy(fragment.gameObject);
         }
+        
         private void OnDestroy()
         {
             foreach (var fragment in _trackFragmentPrefabs)

@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace DefaultNamespace
 {
-    public class PointerInput : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class PointerInput : MonoBehaviour, IBeginDragHandler, IDragHandler
     {
         [SerializeField]
         private TextMeshProUGUI _tapToPlayText;
@@ -26,10 +26,6 @@ namespace DefaultNamespace
         {
             float relativeTouchPositionX = (eventData.position.x - _halfScreen) / _halfScreen;
             _playerMove.MoveTo(relativeTouchPositionX);
-        }
-        public void OnEndDrag(PointerEventData eventData)
-        {
-            
         }
     }
 }
